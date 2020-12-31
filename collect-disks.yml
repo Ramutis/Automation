@@ -1,0 +1,15 @@
+- name: Lets look at some disks
+  hosts: server
+  become: false
+  tasks:
+  - name: Collect disks information
+    shell: df -hT
+    register: out
+
+  - name: Output disks
+    debug: var=out.stdout_lines
+
+
+
+
+
